@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 //import {useNavigate} from 'react-router-dom';
-import axios from "../axios/index";
+import axios from '../axios/index';
 
 export default function View(){
 const [posts, setPosts] = useState([]);
@@ -16,12 +16,12 @@ async function getData(){
     formData.append('table', 'test');
     formData.append('function', '/get_all');
     let response = await axios({
-		method: "post",
-		url: "/get_all",
+		method: 'post',
+		url: '/get_all',
 		data: {
 			table: 'test', // This is the body part
 		},
-		//headers: { "Content-Type": "multipart/form-data" },
+		//headers: { 'Content-Type': 'multipart/form-data' },
 	  })
 		.then(function (response) {
 		  //handle success
@@ -55,9 +55,9 @@ function Post_detail(i){
 
 return(
 <section className='blog2'>
-<div className="container">
-<div className="row">
-<div className="col-md-12">
+<div className='container'>
+<div className='row'>
+<div className='col-md-12'>
   <p className='large'>BLOG</p>
 
   <table>
