@@ -3,8 +3,10 @@ import Input from './Input';
 import Textarea from './Textarea';
 import Select from './Select';
 import RadioButtons from './RadioButtons';
+import CheckboxToggleSwitch from './CheckboxToggleSwitch';
 import CheckboxGroup from './CheckboxGroup';
 import DatePicker from './DatePicker';
+import FileUpload from './FileUpload';
 
 function FormikControl(props){
     const  {control, ...rest} = props;
@@ -17,10 +19,14 @@ function FormikControl(props){
             return <Select {...rest} />;
         case 'radio':
             return <RadioButtons {...rest} />;
-        case 'checkbox':
+        case 'checkboxgroup':
             return <CheckboxGroup {...rest} />;
+        case 'checkbox_toggle_switch':
+            return <CheckboxToggleSwitch {...rest} />;
         case 'date':
             return <DatePicker {...rest} />;
+        case 'file':
+            return <FileUpload { ...rest} />;
         default:
             return null;
     }

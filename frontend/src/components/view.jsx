@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from '../axios/index';
 
 export default function View(){
-const [posts, setPosts] = useState([]);
+const [rows, setRows] = useState([]);
 const formData = new FormData();
 //const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ async function getData(){
 		.then(function (response) {
 		  //handle success
 		  console.log(response);
-      setPosts(prevPosts => prevPosts = response.data);
+      setRows(prevrows => prevrows = response.data);
 		})
     //console.log('Response:', response.data);
     //console.log('Users:', users);
@@ -63,7 +63,7 @@ return(
   <table>
   <tbody>
   {
-    posts && posts.length > 0 && posts.map((i) => (
+    rows && rows.length > 0 && rows.map((i) => (
       <tr key={i.id}><td>{i.id}</td><td>{i.name}</td><td>{i.sectors}</td><td>{i.terms}</td><td>{i.updated}</td><td>{i.created}</td></tr>
     ))
   }

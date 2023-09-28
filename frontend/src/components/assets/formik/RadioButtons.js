@@ -6,7 +6,7 @@ function RadioButtons(props){
     const {label, name, options, ...rest} = props;
   return(
     <div className='form-control'>
-        <label htmlFor={name} className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>{label}</label>
+        <label htmlFor={name}>{label}</label>
         <Field name={name} {...rest}>
             {({field}) => {
                 return options.map(option => {
