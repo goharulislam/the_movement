@@ -1,4 +1,4 @@
-import View from './components/view';
+import View from './components/edit';
 //import {useNavigate} from 'react-router-dom';
 
 function App(){

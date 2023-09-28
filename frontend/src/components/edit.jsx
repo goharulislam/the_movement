@@ -18,8 +18,8 @@ useEffect(() => {
 
 async function getData(){
   try{
-    formData.append('table', 'test');
-    formData.append('function', '/get_all');
+    //formData.append('table', 'test');
+    //formData.append('function', '/get_all');
     let response = await axios({
 		method: 'post',
 		url: '/get_all',
@@ -39,10 +39,35 @@ async function getData(){
     console.log(err);
   }
 }
-
+/*
 const makeRequest = (formData) => {
 	console.log('form submitted', formData);
 	document.getElementById('whereToPrint').innerHTML = JSON.stringify(formData, null, 4);
+}*/
+
+async function makeRequest(formData){
+try{
+    //formData.append('table', 'test');
+    //formData.append('function', '/get_all');
+    let response = await axios({
+		method: 'post',
+		url: '/update_one',
+		data: {
+			table: 'test', // This is the body part
+			formData
+		},
+		//headers: { 'Content-Type': 'multipart/form-data' },
+	  })
+		.then(function (response) {
+			//handle success
+			console.log(response);
+			setFormValues(response.data);
+		})
+    //console.log('Response:', response.data);
+    //console.log('Users:', users);
+  }catch(err){
+    console.log(err);
+  }
 }
 
 const handleNextStep = (newData, final = false) => {
@@ -86,13 +111,13 @@ const StepOne = (props) => {
 
 const handleSubmit = (values) => {
 	console.log('formik', Formik)
-	props.next(values);
+	props.next(values, true);
 }
 
 return(
 	<Formik initialValues={props.data[0]} validationSchema={stepOneValidationSchema} onSubmit={handleSubmit} enableReinitialize>
 	{formik => {
-		console.log('formik-initialValues', props.data[0].name);
+		//console.log('formik-initialValues', props.data[0].name);
 		//console.log('props.data', props.data[0].name);
 		return(
 			<Form>
